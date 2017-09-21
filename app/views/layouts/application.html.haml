@@ -1,0 +1,44 @@
+!!!
+%html
+  %head
+    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+    %meta{:content => "width=device-width, initial-scale=1.0", :name => "viewport"}/
+    %title= content_for?(:title) ? yield(:title) : "Home"
+    %meta{:content => "#{content_for?(:description) ? yield(:description) : "no description"}", :name => "description"}/
+    = stylesheet_link_tag "application", :media => "all"
+    = javascript_include_tag "application"
+    = csrf_meta_tags
+    = yield(:head)
+  %body{:class => "#{controller_name} #{action_name}"}
+    %nav.navbar.navbar-default{:role => "navigation"}
+      .container
+        .navbar-header
+          %button.navbar-toggle.collapsed{"data-target" => "#bs-example-navbar-collapse-1", "data-toggle" => "collapse", :type => "button"}
+            %span.sr-only Toggle navigation
+            %span.icon-bar
+            %span.icon-bar
+      
+          = link_to "Home", root_path, class: "navbar-brand"
+        / Collect the nav links, forms, and other content for toggling
+        #bs-example-navbar-collapse-1.collapse.navbar-collapse
+          %ul.nav.navbar-nav
+            - if true
+              %li= link_to "New Blah", root_path, class: "active"
+              %li= link_to "Account", root_path
+            - else
+              %li= link_to "Sign Up", root_path, class: "active"
+              %li= link_to "Sign In", root_path, class: "active"
+    #main{:role => "main"}
+      .container
+        .content
+          .row
+            .span12
+              - flash.each do |name, msg|
+                - if msg.is_a?(String)
+                  %div{:class => "alert alert-#{name == :notice ? "success" : "error"}"}
+                    %a.close{"data-dismiss" => "alert"} ×
+                    = content_tag :div, msg, :id => "flash_#{name}"
+              = yield
+          %footer
+      / ! end of .container
+    / ! end of #main
