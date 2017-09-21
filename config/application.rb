@@ -1,4 +1,4 @@
-require_relative 'boot'
+require_relative "boot"
 
 require "rails"
 # Pick the frameworks you want:
@@ -26,17 +26,16 @@ module RadioLogger
     # -- all .rb files in that directory are automatically loaded.
 
     # Do generate system test files.
-    #config.generators.system_tests = nil
+    # config.generators.system_tests = nil
 
-      config.generators do |generate|
-        generate.helper false
-        generate.assets false
-        generate.view_specs false
-        generate.helper_specs false
-        generate.routing_specs false
-        generate.controller_specs false
-        generate.fixture_replacement :factory_girl, :dir => "spec/factories"
-      end
-
+    config.generators do |generate|
+      generate.helper false
+      generate.assets false
+      generate.view_specs false
+      generate.helper_specs false
+      generate.routing_specs false
+      generate.controller_specs false
+      generate.fixture_replacement :factory_girl, dir: "spec/factories"
+    end
   end
 end

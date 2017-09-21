@@ -10,10 +10,24 @@
     = csrf_meta_tags
     = yield(:head)
   %body{:class => "#{controller_name} #{action_name}"}
-    .navbar.navbar-fixed-top
-      %nav.navbar-inner
-        .container
-          = link_to "Home", root_path, :class => 'brand'
+    %nav.navbar.navbar-default{:role => "navigation"}
+      .container
+        .navbar-header
+          %button.navbar-toggle.collapsed{"data-target" => "#bs-example-navbar-collapse-1", "data-toggle" => "collapse", :type => "button"}
+            %span.sr-only Toggle navigation
+            %span.icon-bar
+            %span.icon-bar
+      
+          = link_to "Home", root_path, class: "navbar-brand"
+        / Collect the nav links, forms, and other content for toggling
+        #bs-example-navbar-collapse-1.collapse.navbar-collapse
+          %ul.nav.navbar-nav
+            - if true
+              %li= link_to "New Blah", root_path, class: "active"
+              %li= link_to "Account", root_path
+            - else
+              %li= link_to "Sign Up", root_path, class: "active"
+              %li= link_to "Sign In", root_path, class: "active"
     #main{:role => "main"}
       .container
         .content
