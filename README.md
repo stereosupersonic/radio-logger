@@ -1,5 +1,20 @@
 # README
 
+## on heroku
+
+https://dashboard.heroku.com/apps/radio-logger
+
+## deploy to heroku
+
+```
+git push heroku master
+```
+
+```
+heroku run rake db:migrate
+```
+
+## next
 This README would normally document whatever steps are necessary to get the
 application up and running.
 
