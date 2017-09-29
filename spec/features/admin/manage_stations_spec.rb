@@ -6,7 +6,15 @@ feature "manage stations" do
     within "#main" do
       click_on "New"
     end
-    # expect(page).to have_content "Welcome"
+
+    fill_in("Name", with: "fm4")
+    fill_in("Url", with: "http://fm4.playlist.at")
+    click_on "Save"
+
+    within "#main" do
+      expect(page).to have_content "Station created"
+      expect(page).to have_content "fm4"
+    end
   end
   # scenario "list stations" do
   # scenario "update stations" do

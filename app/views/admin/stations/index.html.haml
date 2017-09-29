@@ -1,3 +1,17 @@
 %h1 Admin::Stations#index
-%p Find me in app/views/admin/stations/index.html.haml
-= add_button new_admin_station_url, "New"
+
+.row
+  .col-md-12
+    %table.table.table-sm.table-condensed.table-hover
+      %thead
+        %tr
+          %th Name
+          %th Url
+          %th
+      %tbody
+        - @stations.each do |stations|
+          %tr
+            %td= stations.name
+            %td= stations.url
+
+    = add_button new_admin_station_url, "New"
