@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/stereosupersonic/radio-logger.svg)](https://travis-ci.org/stereosupersonic/radio-logger)
+
 # README
 
 ## on heroku

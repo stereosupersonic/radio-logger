@@ -1,0 +1,10 @@
+language: ruby
+rvm:
+  - 2.4.2
+
+before_script:
+  - cp config/database.travis.yml config/database.yml
+  - psql -c "create database radio-logger_test;" -U postgress
+  - bin/rake --trace db:structure:load RAILS_ENV=test
+
+script: bin/rspec && bundle exec rubocop -D -c .rubocop.yml
