@@ -6,4 +6,10 @@
   .form-group
     = f.label :url
     = f.text_field :url, :class => "text-field form-control", :required => true
+  .form-group
+    = f.label :scraper
+    = f.select :scraper, ::Station::SCRAPERS, :class => "text-field form-control", :required => true
+  .form-group
+    = f.label :script
+    = f.text_area :script, :class => "text-field form-control", :required => true
   = submit_button "Save"

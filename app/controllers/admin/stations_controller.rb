@@ -18,7 +18,7 @@ class Admin::StationsController < ApplicationController
 
   def edit
     station = ::Station.find params[:id]
-    @station_form = Admin::StationForm.new(station.attributes.slice("id", "name", "url"))
+    @station_form = Admin::StationForm.new(station.attributes.slice(*station_attibutes))
   end
 
   def update
@@ -33,15 +33,17 @@ class Admin::StationsController < ApplicationController
   def destroy
     station = ::Station.find params[:id]
     station.destroy
+
     redirect_to admin_stations_path, notice: "Station #{station.name} deleted"
   end
 
   private
 
+  def station_attibutes
+    Admin::StationForm::ATTRIBUTES
+  end
+
   def station_params
-    params.require(:station).permit(
-      :name,
-      :url
-    )
+    params.require(:station).permit(station_attibutes - ["id"])
   end
 end
