@@ -16,5 +16,5 @@
 #
 
 class Station < ApplicationRecord
-  SCRAPERS = %i[nokogiri]
+  SCRAPERS = %i[css]
 end

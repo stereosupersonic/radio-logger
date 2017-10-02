@@ -1,4 +1,5 @@
 class Admin::StationsController < ApplicationController
+  before_action :redirect_preview, only: %i[create update]
   def index
     @stations = Admin::StationPresenter.wrap(Station.all)
   end
@@ -38,6 +39,12 @@ class Admin::StationsController < ApplicationController
   end
 
   private
+
+  def redirect_preview
+    if params[:preview]
+      redirect_to admin_preview_stations_new_path(station_params)
+    end
+  end
 
   def station_attibutes
     Admin::StationForm::ATTRIBUTES

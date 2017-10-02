@@ -21,6 +21,7 @@ gem "bcrypt", "~> 3.1.7"
 gem "haml-rails"
 
 # scrapers
+gem "mechanize", require: false
 gem "nokogiri", require: false
 
 # gem "kaminari", ">= 0.15.1"

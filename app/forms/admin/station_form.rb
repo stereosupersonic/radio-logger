@@ -2,7 +2,7 @@ class Admin::StationForm
   include ActiveModel::Model
 
   ATTRIBUTES = %w[id name url scraper script]
-  attr_accessor *ATTRIBUTES
+  attr_accessor(*ATTRIBUTES)
 
   validates :name, presence: true
   validates :url, presence: true
