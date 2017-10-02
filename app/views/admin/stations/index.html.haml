@@ -1,0 +1,17 @@
+%h1 Stations
+
+.row
+  .col-md-12
+    %table.table.table-sm.table-condensed.table-hover
+      %thead
+        %tr
+          %th Name
+          %th
+      %tbody
+        - @stations.each do |station|
+          %tr{id: "station_#{station.id}"}
+            %td= station.name
+            %td
+              = edit_button edit_admin_station_path(station)
+              = delete_button admin_station_path(station)
+    = add_button new_admin_station_url, "New"

@@ -45,9 +45,6 @@ Style/MutableConstant:
 Style/FrozenStringLiteralComment:
   Enabled: false
 
-Style/VariableNumber:
-  Enabled: false
-
 Style/FormatStringToken:
   Enabled: false
 
@@ -96,6 +93,10 @@ Metrics/CyclomaticComplexity:
   Enabled: false
 
 Metrics/PerceivedComplexity:
+  Enabled: false
+
+# Naming
+Naming/VariableNumber:
   Enabled: false
 
 # Lint

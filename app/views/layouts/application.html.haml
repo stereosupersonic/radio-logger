@@ -17,13 +17,13 @@
             %span.sr-only Toggle navigation
             %span.icon-bar
             %span.icon-bar
-      
+
           = link_to "Home", root_path, class: "navbar-brand"
         / Collect the nav links, forms, and other content for toggling
         #bs-example-navbar-collapse-1.collapse.navbar-collapse
           %ul.nav.navbar-nav
             - if true
-              %li= link_to "New Blah", root_path, class: "active"
+              %li= link_to "Stations", admin_stations_path, class: "active"
               %li= link_to "Account", root_path
             - else
               %li= link_to "Sign Up", root_path, class: "active"

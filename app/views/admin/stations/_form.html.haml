@@ -1,0 +1,9 @@
+= form_for [:admin, @station_form], :html => { :class => "form-horizontal" } do |f|
+  = render "layouts/errors", object: f.object
+  .form-group
+    = f.label :name, :class => "control-label"
+    = f.text_field :name, :class => "text-field form-control", :required => true
+  .form-group
+    = f.label :url
+    = f.text_field :url, :class => "text-field form-control", :required => true
+  = submit_button "Save"
