@@ -1,4 +1,4 @@
-%h1 Admin::Stations#index
+%h1 Stations
 
 .row
   .col-md-12
@@ -6,13 +6,11 @@
       %thead
         %tr
           %th Name
-          %th Url
           %th
       %tbody
         - @stations.each do |station|
           %tr{id: "station_#{station.id}"}
             %td= station.name
-            %td= station.url
             %td
               = edit_button edit_admin_station_path(station)
               = delete_button admin_station_path(station)
