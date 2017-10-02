@@ -4,16 +4,36 @@ class Admin::StationsController < ApplicationController
   end
 
   def new
-    @station = ::Station.new
+    @station_form = Admin::StationForm.new
   end
 
   def create
-    create_station = Admin::CreateStation.new(station_params)
-    if create_station.call
+    @station_form = Admin::StationForm.new(station_params)
+    if @station_form.call
       redirect_to admin_stations_path, notice: "Station created"
     else
-      render :edit, alert: create_refund.errors.full_messages.to_sentence
+      render :new
     end
+  end
+
+  def edit
+    station = ::Station.find params[:id]
+    @station_form = Admin::StationForm.new(station.attributes.slice("id", "name", "url"))
+  end
+
+  def update
+    @station_form = Admin::StationForm.new(station_params.merge(id: params[:id]))
+    if @station_form.call
+      redirect_to admin_stations_path, notice: "Station updated"
+    else
+      render :edit
+    end
+  end
+
+  def destroy
+    station = ::Station.find params[:id]
+    station.destroy
+    redirect_to admin_stations_path, notice: "Station #{station.name} deleted"
   end
 
   private

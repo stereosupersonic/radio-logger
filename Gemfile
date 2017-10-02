@@ -29,8 +29,7 @@ group :development do
   gem "guard-livereload",      require: false
   gem "guard-rspec",           require: false
   gem "listen", ">= 3.0.5", "< 3.2"
-  gem "pry",                   require: false
-  gem "pry-nav",               require: false
+
   gem "rubocop",               require: false
   gem "simplecov",             require: false
   gem "spring"
@@ -40,6 +39,8 @@ end
 group :test, :development do
   gem "database_cleaner"
   gem "factory_girl_rails"
+  gem "pry", require: false
+  gem "pry-nav", require: false
   gem "rspec-rails"
 end
 

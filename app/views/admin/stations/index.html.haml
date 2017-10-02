@@ -9,9 +9,11 @@
           %th Url
           %th
       %tbody
-        - @stations.each do |stations|
-          %tr
-            %td= stations.name
-            %td= stations.url
-
+        - @stations.each do |station|
+          %tr{id: "station_#{station.id}"}
+            %td= station.name
+            %td= station.url
+            %td
+              = edit_button edit_admin_station_path(station)
+              = delete_button admin_station_path(station)
     = add_button new_admin_station_url, "New"
