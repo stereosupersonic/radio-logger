@@ -1,2 +1,20 @@
-Station.create(name: "fm4", url: "http://fm4.orf.at/player/")
-Station.create(name: "rockantenne ed", url: "https://www.rockantenne.de/musik/song-suche")
+Station.create(
+  name: "fm4",
+  url: "http://hop.orf.at/trackservice/fm4",
+  title_script: "b:last",
+  artist_script: "i:last"
+)
+
+Station.create(
+  name: "rockantenne",
+  url: "https://www.rockantenne.de/musik/song-suche",
+  title_script: ".music_results__list .music_results__item:first .music_results__content .song_title [title]",
+  artist_script: ".music_results__list .music_results__item:first .music_results__content .artist"
+)
+
+Station.create(
+  name: "absoluteradio.co.uk",
+  url: "https://absoluteradio.co.uk/absolute-radio/music/",
+  title_script: "#trackList .song .song-details .song-title",
+  artist_script: "#trackList .song .song-details .song-artist"
+)

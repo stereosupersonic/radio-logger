@@ -20,6 +20,9 @@ gem "bcrypt", "~> 3.1.7"
 # haml
 gem "haml-rails"
 
+# scrapers
+gem "nokogiri", require: false
+
 # gem "kaminari", ">= 0.15.1"
 # gem "kaminari-bootstrap", ">= 3.0.1"
 
