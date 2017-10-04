@@ -22,4 +22,8 @@
 
 class LogEntry < ApplicationRecord
   belongs_to :station
+
+  def self.recent
+    limit(20).order(id: :desc)
+  end
 end

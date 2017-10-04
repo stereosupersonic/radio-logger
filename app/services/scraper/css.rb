@@ -12,6 +12,7 @@ class Scraper::Css
   def call
     artist = Array(doc.css(@artist_script))[0]&.text
     title = Array(doc.css(@title_script))[0]&.text
+    Rails.logger.info "scraped by css: artist:#{artist} title:#{title}"
     Scraper::Track.new normalize(artist), normalize(title)
   end
 

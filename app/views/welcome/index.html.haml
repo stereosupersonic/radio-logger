@@ -19,4 +19,4 @@
           %td= format_datetime entry.created_at
           %td= entry.artist
           %td= entry.title
-          %td= entry.station_name
+          %td= link_to entry.station_name, edit_admin_station_path(entry.station)
