@@ -10,7 +10,10 @@
     = f.label :scraper
     = f.select :scraper, ::Station::SCRAPERS, :class => "text-field form-control", :required => true
   .form-group
-    = f.label :script
-    = f.text_area :script, :class => "text-field form-control", :required => true
+    = f.label :title_script
+    = f.text_area :title_script, :class => "text-field form-control", :required => true
+  .form-group
+    = f.label :artist_script
+    = f.text_area :artist_script, :class => "text-field form-control", :required => true
   = submit_button "Save"
   = submit_button "Preview", id: :preview, name: "preview"

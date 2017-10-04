@@ -1,13 +1,14 @@
 class Admin::StationForm
   include ActiveModel::Model
 
-  ATTRIBUTES = %w[id name url scraper script]
+  ATTRIBUTES = %w[id name url scraper title_script artist_script]
   attr_accessor(*ATTRIBUTES)
 
   validates :name, presence: true
   validates :url, presence: true
   validates :scraper, presence: true
-  validates :script, presence: true
+  validates :title_script, presence: true
+  validates :artist_script, presence: true
 
   def call
     valid? && persist

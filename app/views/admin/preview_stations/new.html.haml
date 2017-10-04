@@ -1,5 +1,11 @@
-%h1= "Preview #{@preview.name}"
+%h1= "Preview for #{@preview.name}"
+
+.well= link_to @preview.url, @preview.url
 
 #preview
-
-  = debug @preview.track
+  .panel-body
+    %dl.clearfix
+      %dt.col-lg-2 Artist
+      %dd.col-lg-10= @preview.track.artist
+      %dt.col-lg-2 Title
+      %dd.col-lg-10= @preview.track.title
