@@ -6,11 +6,13 @@
       %thead
         %tr
           %th Name
+          %th Last logged 
           %th
       %tbody
         - @stations.each do |station|
           %tr{id: "station_#{station.id}"}
             %td= station.name
+            %td= format_datetime station.last_logged_at
             %td
               = edit_button edit_admin_station_path(station)
               = delete_button admin_station_path(station)

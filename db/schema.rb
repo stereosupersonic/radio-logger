@@ -10,10 +10,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171004080229) do
+ActiveRecord::Schema.define(version: 20171004151231) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "log_entries", force: :cascade do |t|
+    t.string "artist", null: false
+    t.string "title", null: false
+    t.string "slug", null: false
+    t.bigint "station_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["slug"], name: "index_log_entries_on_slug"
+    t.index ["station_id"], name: "index_log_entries_on_station_id"
+  end
 
   create_table "stations", force: :cascade do |t|
     t.string "name", null: false
@@ -23,7 +34,9 @@ ActiveRecord::Schema.define(version: 20171004080229) do
     t.string "scraper"
     t.string "artist_script"
     t.string "title_script"
+    t.datetime "last_logged_at"
     t.index ["name"], name: "index_stations_on_name", unique: true
   end
 
+  add_foreign_key "log_entries", "stations"
 end

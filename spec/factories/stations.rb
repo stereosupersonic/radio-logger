@@ -2,14 +2,15 @@
 #
 # Table name: stations
 #
-#  id            :integer          not null, primary key
-#  name          :string           not null
-#  url           :string           not null
-#  created_at    :datetime         not null
-#  updated_at    :datetime         not null
-#  scraper       :string
-#  artist_script :string
-#  title_script  :string
+#  id             :integer          not null, primary key
+#  name           :string           not null
+#  url            :string           not null
+#  created_at     :datetime         not null
+#  updated_at     :datetime         not null
+#  scraper        :string
+#  artist_script  :string
+#  title_script   :string
+#  last_logged_at :datetime
 #
 # Indexes
 #
@@ -21,6 +22,7 @@ FactoryGirl.define do
     name "fm4"
     url "http://fm4.orf.at/player/"
     scraper :css
-    script "some blah"
+    artist_script "some blah"
+    title_script "some blah"
   end
 end
