@@ -10,7 +10,8 @@ feature "manage stations" do
     fill_in("Name", with: "fm4")
     fill_in("Url", with: "http://fm4.playlist.at")
     select("css", from: "Scraper")
-    fill_in("Script", with: "http://fm4.playlist.at")
+    fill_in("Artist script", with: "something")
+    fill_in("Title script", with: "something")
     click_on "Save"
 
     within "#main" do
