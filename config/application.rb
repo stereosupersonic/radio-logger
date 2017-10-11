@@ -27,6 +27,7 @@ module RadioLogger
 
     # Do generate system test files.
     # config.generators.system_tests = nil
+    config.time_zone = "Berlin"
 
     config.generators do |generate|
       generate.helper false
