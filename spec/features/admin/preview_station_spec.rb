@@ -1,6 +1,8 @@
 require "capybara_helper"
 
 feature "preview last song" do
+  before { login_as create(:user) }
+
   scenario "show a valid entry" do
     visit "admin/stations"
     within "#main" do

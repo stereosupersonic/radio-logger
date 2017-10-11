@@ -1,12 +1,13 @@
 Rails.application.routes.draw do
-  namespace :admin do
-    get "preview_stations/new"
-  end
+  root "welcome#index"
 
   get "welcome/index"
-  root "welcome#index"
+
+  get   "/login",   to: "sessions#new"
+  post  "/login",   to: "sessions#create"
 
   namespace :admin do
     resources :stations
+    resources :preview_stations, only: :new
   end
 end

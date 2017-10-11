@@ -1,4 +1,4 @@
-class Admin::PreviewStationsController < ApplicationController
+class Admin::PreviewStationsController < Admin::BaseController
   def new
     preview = Admin::PreviewForm.new(preview_params)
     preview.call

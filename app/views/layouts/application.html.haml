@@ -22,12 +22,10 @@
         / Collect the nav links, forms, and other content for toggling
         #bs-example-navbar-collapse-1.collapse.navbar-collapse
           %ul.nav.navbar-nav
-            - if true
+            - if current_user
               %li= link_to "Stations", admin_stations_path, class: "active"
-              %li= link_to "Account", root_path
             - else
-              %li= link_to "Sign Up", root_path, class: "active"
-              %li= link_to "Sign In", root_path, class: "active"
+              %li= link_to "Login", login_path, class: "active"
     #main{:role => "main"}
       .container
         .content
