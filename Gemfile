@@ -26,6 +26,8 @@ gem "nokogiri", require: false
 # gem "kaminari", ">= 0.15.1"
 # gem "kaminari-bootstrap", ">= 3.0.1"
 
+gem "clockwork", require: false
+
 group :development do
   gem "annotate",              require: false
   gem "guard",                 require: false
