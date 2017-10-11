@@ -6,6 +6,7 @@ feature "admin section login" do
 
     visit "/"
     expect(page).to_not have_link "Stations"
+    expect(page).to_not have_link "Logout"
 
     click_on "Login"
 
@@ -14,5 +15,10 @@ feature "admin section login" do
     click_on "Log in"
 
     expect(page).to have_link "Stations"
+    expect(page).to have_link "Logout"
+
+    click_on "Logout"
+
+    expect(page).to_not have_link "Stations"
   end
 end
