@@ -1,6 +1,8 @@
 require "capybara_helper"
 
 feature "manage stations" do
+  before { login_as create(:user) }
+
   scenario "add a new stations" do
     visit "admin/stations"
     within "#main" do

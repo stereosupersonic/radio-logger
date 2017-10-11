@@ -1,4 +1,4 @@
-class Admin::StationsController < ApplicationController
+class Admin::StationsController < Admin::BaseController
   before_action :redirect_preview, only: %i[create update]
   def index
     @stations = Admin::StationPresenter.wrap(Station.all)
@@ -42,7 +42,7 @@ class Admin::StationsController < ApplicationController
 
   def redirect_preview
     if params[:preview]
-      redirect_to admin_preview_stations_new_path(station_params)
+      redirect_to new_admin_preview_station_path(station_params)
     end
   end
 
