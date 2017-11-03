@@ -3,12 +3,9 @@ rvm:
   - 2.4.1
 
 #https://docs.travis-ci.com/user/database-setup/#PostgreSQL
-services:
-  - postgresql
-
 before_script:
   - cp config/database.travis.yml config/database.yml
-  - psql -c "create database radio-logger_test;" -U postgress
-  - bin/rake --trace db:structure:load RAILS_ENV=test
+  - psql -c 'create database "radio-logger_test";' -U postgres
+  - RAILS_ENV=test bin/rake --trace db:migrate
 
-script: bin/rspec && bundle exec rubocop -D -c .rubocop.yml
+script: bin/rake spec && bundle exec rubocop -D -c .rubocop.yml
