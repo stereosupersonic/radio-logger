@@ -2,6 +2,12 @@ language: ruby
 rvm:
   - 2.4.2
 
+bundler_args: --without production
+
+#https://docs.travis-ci.com/user/database-setup/#PostgreSQL
+services:
+  - postgresql
+
 before_script:
   - cp config/database.travis.yml config/database.yml
   - psql -c "create database radio-logger_test;" -U postgress

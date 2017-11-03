@@ -19,15 +19,15 @@ To use Radio Logger, you must have
 
 ### Installing  
 
-1. Checkout the git tree from Github 
- 
+1. Checkout the git tree from Github
+
   ```
   git clone git@github.com:stereosupersonic/radio-logger.git
-  cd radio-logger 
+  cd radio-logger
   ```
 
 2. Modify `config/database.yml` to connect to your database (See [the Rails Guide](http://guides.rubyonrails.org/configuring.html#configuring-a-database) for examples)
-  
+
 4. Set up your database
 
     ```
@@ -59,4 +59,3 @@ To use Radio Logger, you must have
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
-
