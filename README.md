@@ -1,4 +1,7 @@
+[![Build Status](https://travis-ci.org/stereosupersonic/radio-logger.svg)](https://travis-ci.org/stereosupersonic/radio-logger)
+
 # Radio Logger
+=======
 
 a simple logger for radio playlists.
 

@@ -1,0 +1,4 @@
+test:
+  adapter: postgresql
+  database: radio-logger_test
+  username: postgres
