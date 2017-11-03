@@ -1,41 +1,63 @@
 [![Build Status](https://travis-ci.org/stereosupersonic/radio-logger.svg)](https://travis-ci.org/stereosupersonic/radio-logger)
 
-# README
+# Radio Logger
+=======
 
-## on heroku
+a simple logger for radio playlists.
 
-https://dashboard.heroku.com/apps/radio-logger
+[Live Example](https://dashboard.heroku.com/apps/radio-logger)
 
-## deploy to heroku
+## Getting Started
 
-```
-git push heroku master
-```
+These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
 
-```
-heroku run rake db:migrate
-```
+### Prerequisites
 
-## next
-This README would normally document whatever steps are necessary to get the
-application up and running.
+To use Radio Logger, you must have
 
-Things you may want to cover:
+ - [Ruby 2.4.1](https://www.ruby-lang.org/en/downloads)
+ - [Postgres 9.4+](http://www.postgresql.org/download)
 
-* Ruby version
+### Installing  
 
-* System dependencies
+1. Checkout the git tree from Github 
+ 
+  ```
+  git clone git@github.com:stereosupersonic/radio-logger.git
+  cd radio-logger 
+  ```
 
-* Configuration
+2. Modify `config/database.yml` to connect to your database (See [the Rails Guide](http://guides.rubyonrails.org/configuring.html#configuring-a-database) for examples)
+  
+4. Set up your database
 
-* Database creation
+    ```
+    bin/setup
+    ```
 
-* Database initialization
+5. Start Radio Logger
 
-* How to run the test suite
+    ```
+    bundle exec rails server
+    ```
 
-* Services (job queues, cache servers, search engines, etc.)
 
-* Deployment instructions
+## Running the tests
 
-* ...
+  ```
+  bin/rake spec
+  ```
+
+## Built With
+
+* [Ruby on Rails](https://github.com/rails/rails) - The web framework used
+
+
+## Authors
+
+* **Michael Deimel** - *Initial work* - [StereoSuperSonic](https://github.com/stereosupersonic)
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
+

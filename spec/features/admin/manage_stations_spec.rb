@@ -1,6 +1,8 @@
 require "capybara_helper"
 
 feature "manage stations" do
+  before { login_as create(:user) }
+
   scenario "add a new stations" do
     visit "admin/stations"
     within "#main" do
@@ -9,6 +11,9 @@ feature "manage stations" do
 
     fill_in("Name", with: "fm4")
     fill_in("Url", with: "http://fm4.playlist.at")
+    select("css", from: "Scraper")
+    fill_in("Artist script", with: "something")
+    fill_in("Title script", with: "something")
     click_on "Save"
 
     within "#main" do
@@ -68,9 +73,8 @@ feature "manage stations" do
       click_on "Delete"
     end
 
-    within "#main" do
-      expect(page).to have_content "Station BR2 deleted"
-      expect(page).to_not have_content "BR2"
-    end
+    expect(page).to have_content "Station BR2 deleted"
+
+    expect(Station.find_by(id: station.id)).to be_nil
   end
 end

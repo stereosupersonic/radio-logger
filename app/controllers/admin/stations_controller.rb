@@ -1,4 +1,5 @@
-class Admin::StationsController < ApplicationController
+class Admin::StationsController < Admin::BaseController
+  before_action :redirect_preview, only: %i[create update]
   def index
     @stations = Admin::StationPresenter.wrap(Station.all)
   end
@@ -18,7 +19,7 @@ class Admin::StationsController < ApplicationController
 
   def edit
     station = ::Station.find params[:id]
-    @station_form = Admin::StationForm.new(station.attributes.slice("id", "name", "url"))
+    @station_form = Admin::StationForm.new(station.attributes.slice(*station_attibutes))
   end
 
   def update
@@ -33,15 +34,23 @@ class Admin::StationsController < ApplicationController
   def destroy
     station = ::Station.find params[:id]
     station.destroy
+
     redirect_to admin_stations_path, notice: "Station #{station.name} deleted"
   end
 
   private
 
+  def redirect_preview
+    if params[:preview]
+      redirect_to new_admin_preview_station_path(station_params)
+    end
+  end
+
+  def station_attibutes
+    Admin::StationForm::ATTRIBUTES
+  end
+
   def station_params
-    params.require(:station).permit(
-      :name,
-      :url
-    )
+    params.require(:station).permit(station_attibutes - ["id"])
   end
 end

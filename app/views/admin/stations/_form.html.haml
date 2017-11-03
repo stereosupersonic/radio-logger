@@ -6,4 +6,14 @@
   .form-group
     = f.label :url
     = f.text_field :url, :class => "text-field form-control", :required => true
+  .form-group
+    = f.label :scraper
+    = f.select :scraper, ::Station::SCRAPERS, :class => "text-field form-control", :required => true
+  .form-group
+    = f.label :title_script
+    = f.text_field :title_script, :class => "text-field form-control", :required => true
+  .form-group
+    = f.label :artist_script
+    = f.text_field :artist_script, :class => "text-field form-control", :required => true
   = submit_button "Save"
+  = submit_button "Preview", id: :preview, name: "preview"
