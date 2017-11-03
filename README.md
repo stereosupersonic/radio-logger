@@ -4,7 +4,7 @@
 
 a simple logger for radio playlists.
 
-[Live Example](https://dashboard.heroku.com/apps/radio-logger)
+[Live Example](https://radio-logger.herokuapp.com/)
 
 ## Getting Started
 
