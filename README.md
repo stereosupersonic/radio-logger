@@ -47,6 +47,16 @@ To use Radio Logger, you must have
   bin/rake spec
   ```
 
+## deploying to heroku
+
+```
+heroku login
+
+git push heroku master
+```
+
+if 
+
 ## Built With
 
 * [Ruby on Rails](https://github.com/rails/rails) - The web framework used
