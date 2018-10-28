@@ -13,13 +13,13 @@ class Scraper::Css
 
   def call
     artist = Array(doc.css(@artist_script))[0]&.text
-    if @artist_regex_script.present?
+    if artist.present? && @artist_regex_script.present?
       reg_ex = Regexp.new @artist_regex_script
       artist = artist[reg_ex, 1]
     end
 
     title = Array(doc.css(@title_script))[0]&.text
-    if @title_regex_script.present?
+    if title.present? && @title_regex_script.present?
       reg_ex = Regexp.new @title_regex_script
       title = title[reg_ex, 1]
     end
