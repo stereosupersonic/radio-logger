@@ -17,6 +17,6 @@
     = f.text_field :artist_script, :class => "text-field form-control", :required => true
   .form-group
     = f.label :disabled
-    = f.checkbox :disabled, :class => "checkboxform-control", :required => false
+    = f.check_box :disabled, :class => "checkboxform-control", :required => false
   = submit_button "Save"
   = submit_button "Preview", id: :preview, name: "preview"
