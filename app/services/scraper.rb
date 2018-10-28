@@ -1,9 +1,9 @@
 class Scraper
   Track = Struct.new(:artist, :title)
 
-  def initialize(scraper_type:, url:, title_script:, artist_script:)
+  def initialize(scraper_type:, html:, title_script:, artist_script:)
     @scraper_type = scraper_type
-    @url = url
+    @html = html
     @artist_script = artist_script
     @title_script = title_script
   end
@@ -16,7 +16,7 @@ class Scraper
 
   def scraper
     "::Scraper::#{@scraper_type.camelize}".constantize.new(
-      url: @url,
+      html: @html,
       artist_script: @artist_script,
       title_script: @title_script
     )
