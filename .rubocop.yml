@@ -106,3 +106,9 @@ Lint/EndAlignment:
 Lint/AmbiguousBlockAssociation:
   Exclude:
     - "spec/**/*"
+
+Security/Open:
+  Enabled: false
+
+Style/MixinUsage:
+  Enabled: false
