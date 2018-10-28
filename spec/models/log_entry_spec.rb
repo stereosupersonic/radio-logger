@@ -2,11 +2,11 @@
 #
 # Table name: log_entries
 #
-#  id         :integer          not null, primary key
+#  id         :bigint(8)        not null, primary key
 #  artist     :string           not null
 #  title      :string           not null
 #  slug       :string           not null
-#  station_id :integer
+#  station_id :bigint(8)
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #

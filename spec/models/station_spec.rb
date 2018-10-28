@@ -2,7 +2,7 @@
 #
 # Table name: stations
 #
-#  id             :integer          not null, primary key
+#  id             :bigint(8)        not null, primary key
 #  name           :string           not null
 #  url            :string           not null
 #  created_at     :datetime         not null
@@ -11,6 +11,7 @@
 #  artist_script  :string
 #  title_script   :string
 #  last_logged_at :datetime
+#  disabled       :boolean
 #
 # Indexes
 #
