@@ -27,6 +27,7 @@ class CreateLogEntry
     slug = build_track_slug track
 
     return if station.log_entries.last&.slug == slug
+
     ActiveRecord::Base.transaction do
       LogEntry.create! do |entry|
         entry.station = station

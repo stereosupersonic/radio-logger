@@ -6,11 +6,11 @@
       %thead
         %tr
           %th Name
-          %th Last logged 
+          %th Last logged
           %th
       %tbody
         - @stations.each do |station|
-          %tr{id: "station_#{station.id}"}
+          %tr{id: "station_#{station.id}", class: "#{'warning' if station.disabled?}"}
             %td= station.name
             %td= format_datetime station.last_logged_at
             %td

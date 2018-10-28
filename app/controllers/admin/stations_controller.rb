@@ -41,9 +41,7 @@ class Admin::StationsController < Admin::BaseController
   private
 
   def redirect_preview
-    if params[:preview]
-      redirect_to new_admin_preview_station_path(station_params)
-    end
+    redirect_to new_admin_preview_station_path(station_params) if params[:preview]
   end
 
   def station_attibutes
